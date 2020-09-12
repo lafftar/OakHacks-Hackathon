@@ -6,6 +6,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from json import dumps
 import matplotlib.pyplot as plt
+from seaborn import lineplot
 
 
 def get_tweet_history(username):
