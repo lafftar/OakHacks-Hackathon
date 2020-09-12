@@ -1,19 +1,26 @@
+body{
+    background-color: rgb(20,23,26);
+}
 .nav{
-    background-color: orange;
+    background-color: rgb(101,119,134);
     overflow: hidden;
 
 }
 .titlez{
     font-size: 50px;
     text-align: center;
-    background-color: orange;
+    background-color: rgb(101,119,134);
     overflow: hidden;
     font-weight: bold;
+}
+
+.titlez a{
+    color: rgb(29,161,242);
 }
 .nav a{
     text-align: center;
     float: left;
-    color: darkslategray;
+    color: rgb(29,161,242);
     font-size: 20px;
     padding: 15px 15px;
 }
@@ -23,7 +30,7 @@
 }
 
 .current{
-    background-color: gray;
+    background-color: rgb(170,184,194);
     font: outline;
 }
 
@@ -31,4 +38,22 @@
     float: right;
     padding: 10px;
     font-size: 20px;
+}
+
+.homepageInfo{
+    color: floralwhite;
+    font-size: 30px;
+    text-align: center;
+}
+
+.searchBar{
+    color: floralwhite;
+    font-size: 30px;
+    text-align: center;
+    
+}
+
+.searchBar input{
+    padding: 15px 25px 15px 15px;
+    width: 95%;
 }
