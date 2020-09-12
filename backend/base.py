@@ -1,4 +1,8 @@
 import twitter
+import yfinance
+from backend.db_interface import create_connection
+from sqlalchemy import create_engine
+import pandas as pd
 
 API_KEY = "l6W2qcWFlQIvj7wVbkQu4t9qo"
 API_KEY_SECRET = "NCu9kQIM8E0n16e1NBXVSFBbeq0ovcG9pQuo2oerNDNXg327To"
@@ -14,7 +18,13 @@ api = twitter.Api(consumer_key=API_KEY,
                   access_token_secret=ACCESS_TOKEN_SECRET)
 
 
-item = api.GetUserTimeline(screen_name="elonmusk")
-
-for tem in item:
-    print(tem)
+# item = api.GetUserTimeline(screen_name="elonmusk")
+#
+# for tem in item:
+#     print(tem)
+# create_connection()
+stock = yfinance.Ticker('tsla')
+data_frame = pd.DataFrame(stock.history(period="1d", actions=False, interval="1m"))
+# db_connection = create_engine('sqlite:///base.db')
+# data_frame.to_sql(f"elonmusk", if_exists='replace', method='multi', con=db_connection)
+print(data_frame)
