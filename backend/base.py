@@ -46,14 +46,15 @@ def get_stock_data(ticker):
     stock = yfinance.Ticker('tsla')
     # stock history for the past day
     data_frame = pd.DataFrame(stock.history(period="1d", actions=False, interval="1m"))
+    print(data_frame)
     return data_frame
 
 # 2020-09-11 15:56:00-04:00
 # print(dumps(get_tweet_history("elonmusk"), indent=2))
 msft = get_stock_data('msft')
-print(msft['Close'])
-msft['Close'].plot()
-plt.show()
+# print(msft['Close'])
+# msft['Close'].plot()
+# plt.show()
 # create_connection()
 
 # # data_frame.to_sql(f"elonmusk_fin_data", if_exists='replace', method='multi', con=db_connection, chunksize=100, index=False)
