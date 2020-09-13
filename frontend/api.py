@@ -12,10 +12,20 @@ CORS(app)
 def search():
     return 'test'
 
+
 @app.route('/', methods=['GET'])
 def home():
     return render_template('homepage.html')
 
+
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
 
 
 app.run()

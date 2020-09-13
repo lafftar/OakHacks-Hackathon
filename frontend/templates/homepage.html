@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--{{ url_for('static',filename='styles/main.css') }}-->
-    <link rel="stylesheet" type= "text/css" href="../static/main.css">
+    <link rel="stylesheet" href="../static/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitalytics Home</title>
@@ -12,6 +11,13 @@
         <a > Twitalytics </a>
     </div>
     
+    <div class="nav">
+        <a class="current" href="homepage.html">Home</a>
+        <a class="about" href="about.html">About</a>
+        <a class="contact" href="contact.html">Contact</a>
+        <input type="text" placeholder="Search CEO here">
+    </div>
+
     <div class="homepageInfo">
         <br>
         <br>
@@ -29,16 +35,6 @@
         <br>
         <input type="text" placeholder="CEO name">
     </div>
-    <footer>
-        <ul>
-            <li>
-                Created for OakHacks
-            </li>
-            <li>
-                About the Creators? Scan bellow
-            </li>
-            
-        </ul>
-    </footer>
+    
 </body>
 </html>
