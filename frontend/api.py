@@ -7,8 +7,8 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 CORS(app)
 
-
-@app.route('/api/v1/search', methods=['GET'])
+# TO-DO: implement return tweets and fin data from db.
+@app.route('/api/v1/get_tweets', methods=['GET'])
 def search():
     return 'test'
 
