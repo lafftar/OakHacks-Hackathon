@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             function(response) {
                 objStock = response;
                 let len = objStock.length
-                for (let i = 0; i < len; i++) {
+                for (let i = len-1 ; i > 0; i--) {
                     demoArr.push(objStock[i].Close);
                 }
                 return demoArr;
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 let objStock = response;
                 let len = objStock.length
                 let counter = 0;
-                for (let i = 0; i < len; i++) {
+                for (let i = len-1 ; i > 0; i--) {
                     demoAr.push(objStock[i].DateTime);
                 }
                 return demoAr;
