@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--{{ url_for('static',filename='styles/main.css') }}-->
-    <link rel="stylesheet" type= "text/css" href="../static/main.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+<!--    <link rel="stylesheet" type= "text/css" href="../static/main.css">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitalytics Home</title>
@@ -35,58 +35,58 @@
 
     </div>
 
-    <div>
-        <canvas id="mixed-chart" width="800" height="450"></canvas>
+<!--    <div>-->
+<!--        <canvas id="mixed-chart" width="800" height="450"></canvas>-->
 
-        <script>
-            new Chart(document.getElementById("mixed-chart"), {
-                type: 'bar',
-                data: {
-                labels: ["9:30 a.m", "  12:20 p.m", "4:00 p.m"],
-                datasets: [{
-                    label: "Stock",
-                    type: "line",
-                    borderColor: "#8e5ea2",
-                    data: [408,547,675,734],
-                    fill: false
-                    },{
-                    label: "Tweets",
-                    type: "scatter",
-                    backgroundColor: "rgba(255, 255, 255 .4)",
-                    backgroundColorHover: "#3e95cd",
-                    data: [133,221,783,2478]
-                    }
-                ]
-                },
-                options: {
-                title: {
-                    display: true,
-                    text: 'Sample'
-                },
-                legend: { display: false }
-                }
-        });
-        </script>
-    </div>
-        
-  
-    
-    <script>
-        function search(){
-            $("input").on("change paste keyup", function () {
-                let inputText = $("input").val()
-                if(inputText.length >= 2){
-                    resetSearchResults();
-                    $.get(
-                        `http://localhost:5000/api/v1/search?query=${inputText}`,
-                        function (response) {
-                        //    build results view here
-                        }
-                    )
-                }
-            });
-        }
-    </script>
+<!--        <script>-->
+<!--            new Chart(document.getElementById("mixed-chart"), {-->
+<!--                type: 'bar',-->
+<!--                data: {-->
+<!--                labels: ["9:30 a.m", "  12:20 p.m", "4:00 p.m"],-->
+<!--                datasets: [{-->
+<!--                    label: "Stock",-->
+<!--                    type: "line",-->
+<!--                    borderColor: "#8e5ea2",-->
+<!--                    data: [408,547,675,734],-->
+<!--                    fill: false-->
+<!--                    },{-->
+<!--                    label: "Tweets",-->
+<!--                    type: "scatter",-->
+<!--                    backgroundColor: "rgba(255, 255, 255 .4)",-->
+<!--                    backgroundColorHover: "#3e95cd",-->
+<!--                    data: [133,221,783,2478]-->
+<!--                    }-->
+<!--                ]-->
+<!--                },-->
+<!--                options: {-->
+<!--                title: {-->
+<!--                    display: true,-->
+<!--                    text: 'Sample'-->
+<!--                },-->
+<!--                legend: { display: false }-->
+<!--                }-->
+<!--        });-->
+<!--        </script>-->
+<!--    </div>-->
+<!--        -->
+<!--  -->
+<!--    -->
+<!--    <script>-->
+<!--        function search(){-->
+<!--            $("input").on("change paste keyup", function () {-->
+<!--                let inputText = $("input").val()-->
+<!--                if(inputText.length >= 2){-->
+<!--                    resetSearchResults();-->
+<!--                    $.get(-->
+<!--                        `http://localhost:5000/api/v1/search?query=${inputText}`,-->
+<!--                        function (response) {-->
+<!--                        //    build results view here-->
+<!--                        }-->
+<!--                    )-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
     <footer>
         <l>
             <li>

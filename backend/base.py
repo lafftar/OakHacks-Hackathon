@@ -36,17 +36,19 @@ def get_tweet_history(username):
 
 
 def write_tweets_to_db(username, tweet_dict):
-    db_connection = create_engine('sqlite:///base.db')
+    db_connection = create_engine('sqlite:///../db/base.db')
     data_frame = pd.DataFrame(tweet_dict)
     data_frame.to_sql(f"{username}_tweets", if_exists='replace', method='multi',
                       con=db_connection, chunksize=100, index=False)
 
 
 def get_stock_data(ticker):
-    db_connection = create_engine('sqlite:///base.db')
+    db_connection = create_engine('sqlite:///../db/base.db')
     stock = yfinance.Ticker(ticker)
-    # stock history for the past day
-    data_frame = pd.DataFrame(stock.history(period="1d", actions=False, interval="1m"))
+    # stock history for the past year in hour intervals
+    data_frame = pd.DataFrame(stock.history(start="2019-10-03", end="2020-09-13", actions=False, interval="60m"))
+    data_frame.index = pd.to_datetime(data_frame.index)
+    data_frame.sort_index(inplace=True, ascending=False)
     data_frame.to_sql(f"elonmusk_fin_data", if_exists='replace', method='multi', con=db_connection, chunksize=100)
     print(data_frame)
     return data_frame
@@ -94,27 +96,27 @@ def go_get():
 # with open('thing.json', 'w+', encoding='utf-8') as file:
 #     file.write(page)
 # print(page)
-with open('thing.json', 'r+', encoding='utf-8') as file:
-    data = []
-    page = json.loads(file.read())
-    # print(len(page["globalObjects"]["tweets"]))
-    for item in page["globalObjects"]["tweets"].values():
-        # time_made = " ".join(item["created_at"].split()[:-2]) + " "
-        # time_made += " ".join(item["created_at"].split()[-1:])
-        data.append({
-            "Created At": item["created_at"],
-            "Tweet Link": f'https://twitter.com/elonmusk/status/{item["id_str"]}',
-            "Tweet Text": item["full_text"]
-        })
-    # df['Date'] = pd.to_datetime(df['Date'])
-    data_frame = pd.DataFrame(data)
-    data_frame["Created At"] = pd.to_datetime(data_frame["Created At"])
-    my_timezone = pytz.timezone('America/Toronto')
-    data_frame["Created At"] = data_frame["Created At"].dt.tz_convert(my_timezone)
-    data_frame.sort_values(by=["Created At"], inplace=True, ascending=False)
-    db_connection = create_engine('sqlite:///../db/base.db')
-    data_frame.to_sql(f"elonmusk_tweets", if_exists='replace', method='multi', con=db_connection, chunksize=100, index=False)
-    print(data_frame)
+# with open('thing.json', 'r+', encoding='utf-8') as file:
+#     data = []
+#     page = json.loads(file.read())
+#     # print(len(page["globalObjects"]["tweets"]))
+#     for item in page["globalObjects"]["tweets"].values():
+#         # time_made = " ".join(item["created_at"].split()[:-2]) + " "
+#         # time_made += " ".join(item["created_at"].split()[-1:])
+#         data.append({
+#             "Created At": item["created_at"],
+#             "Tweet Link": f'https://twitter.com/elonmusk/status/{item["id_str"]}',
+#             "Tweet Text": item["full_text"]
+#         })
+#     # df['Date'] = pd.to_datetime(df['Date'])
+#     data_frame = pd.DataFrame(data)
+#     data_frame["Created At"] = pd.to_datetime(data_frame["Created At"])
+#     my_timezone = pytz.timezone('America/Toronto')
+#     data_frame["Created At"] = data_frame["Created At"].dt.tz_convert(my_timezone)
+#     data_frame.sort_values(by=["Created At"], inplace=True, ascending=False)
+#     db_connection = create_engine('sqlite:///../db/base.db')
+#     data_frame.to_sql(f"elonmusk_tweets", if_exists='replace', method='multi', con=db_connection, chunksize=100, index=False)
+#     print(data_frame)
     # for tweet in page["globalObjects"]:
     #     print(tweet)
     # print(json.dumps(page, indent=2))
