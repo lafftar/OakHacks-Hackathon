@@ -19,6 +19,11 @@ def return_tweets():
     return jsonify(get_tweets(request.args["username"]))
 
 
+@app.route('/api/v1/search', methods=['GET'])
+def search():
+    return jsonify(get_tweets(request.args["query"]))
+
+
 @app.route('/', methods=['GET'])
 def home():
     return render_template('homepage.html')

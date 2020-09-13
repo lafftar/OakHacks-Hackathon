@@ -7,11 +7,15 @@ html {
     margin: auto;
 }
 
+canvas{
+    display: none;
+}
+
 body{
     background-color: rgb(255, 255, 255);
     font-family: "Domine", sans-serif;
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .titlez{
