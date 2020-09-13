@@ -1,7 +1,11 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    setTimeout(run, 1000)
+
+
+    search()
+    document.getElementById ("ceo_selector_click").addEventListener (
+        "click", run);
 
     let objStock;
     let demoArr = [];
@@ -36,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function run() {
+        document.getElementById('ceo_selector').style.display = "none";
         getStockDate();
         getStockPrice();
         let stockPrice = demoArr.reverse();
@@ -77,13 +82,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $("input").on("change paste keyup", function() {
             let inputText = $("input").val()
             if (inputText.length >= 2) {
-                resetSearchResults();
-                $.get(
-                    `http://localhost:5000/api/v1/search?query=${inputText}`,
-                    function(response) {
-                        //    build results view here
-                    }
-                )
+                document.getElementById('ceo_selector').style.display = "block";
             }
         });
     }
