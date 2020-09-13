@@ -1,92 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
-<!--    <link rel="stylesheet" type= "text/css" href="../static/main.css">-->
+    <!--{{ url_for('static',filename='styles/main.css') }}-->
+    <link rel="stylesheet" type= "text/css" href="../static/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitalytics Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    
 </head>
 <body>
+    
     <div class="titlez">
         <a > Twitalytics </a>
     </div>
     
     <div class="homepageInfo">
-        <a> Twitalytics is a tool that helps you explore the impact social media has on the stock market.
+        <br>
+        <br>
+        <a> Welcome to Twitalytics the web tool showing you impact of social media on the stock market.
             <br>
-            Twitalytics tries to find correlations between tweets from CEO's and the price movement of their companies.
+            Twitalytics compairs high profile CEO's tweets with their stock price to show you how influencial social media can be on the stock market.
         </a>
     </div>
 
     <div class="searchBar">
         <br>
         <a>
-            Just enter the name of the CEO you wish to search!
+            Please enter the name of the CEO you wish to search!
         </a>
         <br>
-        <input type="text" placeholder="Elon Musk...for example.">
+        <input type="text" placeholder="CEO name">
         <br>
 
     </div>
 
-<!--    <div>-->
-<!--        <canvas id="mixed-chart" width="800" height="450"></canvas>-->
-
-<!--        <script>-->
-<!--            new Chart(document.getElementById("mixed-chart"), {-->
-<!--                type: 'bar',-->
-<!--                data: {-->
-<!--                labels: ["9:30 a.m", "  12:20 p.m", "4:00 p.m"],-->
-<!--                datasets: [{-->
-<!--                    label: "Stock",-->
-<!--                    type: "line",-->
-<!--                    borderColor: "#8e5ea2",-->
-<!--                    data: [408,547,675,734],-->
-<!--                    fill: false-->
-<!--                    },{-->
-<!--                    label: "Tweets",-->
-<!--                    type: "scatter",-->
-<!--                    backgroundColor: "rgba(255, 255, 255 .4)",-->
-<!--                    backgroundColorHover: "#3e95cd",-->
-<!--                    data: [133,221,783,2478]-->
-<!--                    }-->
-<!--                ]-->
-<!--                },-->
-<!--                options: {-->
-<!--                title: {-->
-<!--                    display: true,-->
-<!--                    text: 'Sample'-->
-<!--                },-->
-<!--                legend: { display: false }-->
-<!--                }-->
-<!--        });-->
-<!--        </script>-->
-<!--    </div>-->
-<!--        -->
-<!--  -->
-<!--    -->
-<!--    <script>-->
-<!--        function search(){-->
-<!--            $("input").on("change paste keyup", function () {-->
-<!--                let inputText = $("input").val()-->
-<!--                if(inputText.length >= 2){-->
-<!--                    resetSearchResults();-->
-<!--                    $.get(-->
-<!--                        `http://localhost:5000/api/v1/search?query=${inputText}`,-->
-<!--                        function (response) {-->
-<!--                        //    build results view here-->
-<!--                        }-->
-<!--                    )-->
-<!--                }-->
-<!--            });-->
-<!--        }-->
-<!--    </script>-->
+    <div>
+        <canvas id="mixed-chart" width="800" height="450"></canvas>
+        <script src="customJS.js"></script>
+        
+    </div>
+        
     <footer>
-        <ul>
+        <l>
             <li>
                 Created for OakHacks
             </li>
